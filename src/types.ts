@@ -12,7 +12,7 @@ export type ActionSection =
       priority: Priority;
     };
 
-export type Action = {
+export type Action<T = Record<string, any>> = {
   id: ActionId;
   name: string;
   shortcut?: string[];
@@ -23,7 +23,7 @@ export type Action = {
   perform?: (currentActionImpl: ActionImpl) => any;
   parent?: ActionId;
   priority?: Priority;
-};
+} & T;
 
 export type ActionStore = Record<ActionId, ActionImpl>;
 
